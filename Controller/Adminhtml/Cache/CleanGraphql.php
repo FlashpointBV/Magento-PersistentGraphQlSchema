@@ -48,7 +48,7 @@ class CleanGraphql implements HttpGetActionInterface
     {
         $this->dataHelper->removeFile($this->dataHelper->getGqlPath());
         try {
-            $types = ['block_html', 'full_page'];
+            $types = ['block_html', 'full_page', 'config'];
             $updatedTypes = 0;
             foreach ($types as $type) {
                 $this->typeList->cleanType($type);
