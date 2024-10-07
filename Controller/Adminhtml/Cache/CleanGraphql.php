@@ -48,14 +48,14 @@ class CleanGraphql implements HttpGetActionInterface
     {
         $this->dataHelper->removeFile($this->dataHelper->getGqlPath());
         try {
-            $types = ['block_html', 'full_page'];
+            $types = ['config'];
             $updatedTypes = 0;
             foreach ($types as $type) {
                 $this->typeList->cleanType($type);
                 $updatedTypes++;
             }
             if ($updatedTypes > 0) {
-                $this->messageManager->addSuccessMessage(__("Flushed the GraphqlSchema files And refreshed the block_html, full_page cache"));
+                $this->messageManager->addSuccessMessage(__("Flushed the GraphqlSchema files and refreshed the config cache"));
             }
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
